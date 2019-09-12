@@ -1,11 +1,18 @@
 import React from 'react'
 
-const Search = () => {
+const Search = (props) => {
+
+  const handleSearch = (event) =>{
+    const handler = props.handleChange
+    handler(event)
+  }
+
   return (
     <div className="ui huge fluid icon input">
       <input
         type="text"
         placeholder={"Search your Recent Transactions"}
+        onChange={handleSearch}
       />
       <i className="circular search link icon"></i>
     </div>
