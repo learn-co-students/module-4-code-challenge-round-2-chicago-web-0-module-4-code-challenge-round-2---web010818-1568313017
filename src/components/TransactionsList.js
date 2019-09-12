@@ -1,38 +1,33 @@
-import React from 'react'
+import React from "react";
+import Transaction from "./Transaction";
 
-const TransactionsList = () => {
-
+// Function component. Don't use this.props --> just props
+const TransactionsList = props => {
+  // console.log(props);
   return (
     <table className="ui celled striped padded table">
       <tbody>
         <tr>
           <th>
-            <h3 className="ui center aligned header">
-              Posted At
-            </h3>
+            <h3 className="ui center aligned header">Posted At</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">
-              Description
-            </h3>
+            <h3 className="ui center aligned header">Description</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">
-              Category
-            </h3>
+            <h3 className="ui center aligned header">Category</h3>
           </th>
           <th>
-            <h3 className="ui center aligned header">
-              Amount
-            </h3>
+            <h3 className="ui center aligned header">Amount</h3>
           </th>
         </tr>
-
-        {"... your code here..."}
-
+        {/* Return one transaction component for each item in the arary */}
+        {props.transactions.map(transaction => {
+          return <Transaction key={transaction.id} transaction={transaction} />;
+        })}
       </tbody>
     </table>
-  )
-}
+  );
+};
 
-export default TransactionsList
+export default TransactionsList;
